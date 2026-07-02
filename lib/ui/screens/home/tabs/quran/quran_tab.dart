@@ -26,6 +26,18 @@ class QuranTab extends StatelessWidget {
           Expanded(flex: 25, child: Image.asset(AppAssets.islamiLogo)),
           buildSearchTextField(),
           SizedBox(height: 8),
+          Text("Most Recently", style: AppTextStyles.white14Bold),
+          Container(
+            height: MediaQuery.of(context).size.height * .18,
+            child: ListView.separated(
+              itemBuilder: (context, index) =>
+                  buildMostRecentItem(context, suras[index]),
+              separatorBuilder: (context, index) => SizedBox(width: 8),
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
+          SizedBox(height: 8),
           Text("Suras list", style: AppTextStyles.white14Bold),
           Expanded(flex: 85, child: buildSurasList()),
         ],
@@ -60,5 +72,27 @@ class QuranTab extends StatelessWidget {
       child: SuraRow(suraDM: suras[index]),
     ),
     separatorBuilder: (_, index) => Divider(),
+  );
+}
+
+Widget buildMostRecentItem(BuildContext context, SuraDM sura) {
+  return Container(
+    width: MediaQuery.of(context).size.width * .7,
+    decoration: BoxDecoration(
+      color: AppColors.gold,
+      borderRadius: BorderRadius.circular(16),
+      image: DecorationImage(
+        image: AssetImage(AppAssets.imgMostRecent),
+        alignment: AlignmentDirectional.centerEnd,
+      ),
+    ),
+    child: Expanded(child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+      Text(sura.nameEn, style: AppTextStyles.black24Bold,),
+      Text(sura.nameAr, style: AppTextStyles.black24Bold,),
+      Text("${sura.verses} Verses", style: AppTextStyles.black16Bold,),
+    ],)),
   );
 }
