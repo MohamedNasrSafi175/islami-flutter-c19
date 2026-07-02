@@ -4,4 +4,5 @@ abstract final class AppColors {
   static const gold = Color(0xffE2BE7F);
   static const black = Color(0xff212121);
   static const white = Colors.white;
+  static const transparent = Colors.transparent;
 }

@@ -52,7 +52,7 @@ class SuraRow extends StatelessWidget {
               DecorationImage(image: AssetImage(AppAssets.imgSuraNumberFrame))),
       child: Center(
         child: Text(
-          "${suraDM.suraIndex}",
+          "${suraDM.suraIndex + 1}",
           style: AppTextStyles.white14Bold,
         ),
       ));

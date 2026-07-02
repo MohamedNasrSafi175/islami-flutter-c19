@@ -1,7 +1,7 @@
 class SuraDM {
   String nameEn;
   String nameAr;
-  int verses;
+  String verses;
   int suraIndex;
 
   SuraDM(
